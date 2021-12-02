@@ -1,0 +1,16 @@
+#!/usr/bin/zsh
+
+curr_col=0
+while true
+do
+  if [[ "$(tput cols)" -ne "${curr_col}" ]]
+  then
+    clear
+    source ../prompt.sh
+    precmd
+    echo $PROMPT | sed -e "s/%{//g" -e "s/%}//g"
+    curr_col=$(tput cols)
+  fi
+  sleep 1
+done
+

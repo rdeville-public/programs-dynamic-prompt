@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# *****************************************************************************
+# License : GNU General Public License v3.0
+# Author  : Romain Deville <contact@romaindeville.fr>
+# *****************************************************************************
+
+# SHELLCHECK
+# =============================================================================
+# Globally disable some shellcheck warning
+# shellcheck disable=SC1090,SC2154,SC2155
+# SC1090: Can't follow non-constant source. Use a directive to specify
+#         location.
+# see: https://github.com/koalaman/shellcheck/wiki/SC1090
+
+# DESCRIPTION:
+# =============================================================================
+# Compute all conrtibutors to the project and write their names into
+# CONTRIBUTORS.md
+
+# VARIABLES
+# =============================================================================
+# Store absolute path of script
+SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1; pwd -P )"
+
+# METHODS
+# =============================================================================
+main(){
+  # Main method which compute contributors of the project and write their
+  # names into CONTRIBUTORS.md
+  # NO PARAM
+
+  local file
+  local contributors
+  source "${SCRIPTPATH}/../lib/debug.sh"
+  debug "INFO" "Entering ${FUNCNAME[0]}${funcstack[1]}"
+
+  file="${SCRIPTPATH}/../CONTRIBUTORS.md"
+  echo "\
+# CONTRIBUTORS
+
+**Thanks to all contributors**
+
+"> "$file"
+
+  contributors=$(git log --format='%aN' --no-merges | sort -u )
+  debug "INFO" "Contributors are :"
+  while read -r contributor
+  do
+    if ! [[ ${contributor} =~ "Romain Deville" ]]
+    then
+      echo "  * $contributor" >> "${file}"
+      debug "INFO" "  * ${contributor}"
+    fi
+  done <<<"${contributors}"
+}
+
+main
+
+# *****************************************************************************
+# EDITOR CONFIG
+# vim: ft=sh: ts=2: sw=2: sts=2
+# *****************************************************************************
