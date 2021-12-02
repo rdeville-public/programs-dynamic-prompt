@@ -61,6 +61,15 @@ variables:
       bash
       git
       gcc
+      py3-pip
+      gcc
+      musl-dev
+      pango
+      zlib-dev
+      jpeg-dev
+      openjpeg-dev
+      g++
+      libffi-dev
   # Create virtual environment
   - virtualenv .venv
   # Activate virtual environment
