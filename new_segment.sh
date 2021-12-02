@@ -25,8 +25,6 @@
 # =============================================================================
 # Store absolute path of script
 SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1; pwd -P )"
-# Compute size of terminal
-TERMSIZE=$(tput cols)
 
 # METHODS
 # =============================================================================
@@ -156,15 +154,15 @@ init_new_segment_documentation(){
   new_segment_file="${SCRIPTPATH}/docs/configuration/segments/${segment_name}.md"
 
   # Create basic segment file from template
-  line=$(( $(grep -n "TPL_NEW_SEGMENT" ${index_file} | cut -d ":" -f 1) - 1 ))
-  sed -i "${line}i ${index_doc_array}" ${index_file}
-  line=$(( $(grep -n "TPL_NEW_SEGMENT" ${readme_file} | cut -d ":" -f 1) - 1 ))
-  sed -i "${line}i ${readme_doc_array}" ${readme_file}
-  line=$(( $(grep -n "TPL_NEW_SEGMENT" ${all_segment_file} | cut -d ":" -f 1) - 1 ))
-  sed -i "${line}i ${all_segment_doc_array}" ${all_segment_file}
-  line=$(( $(grep -n "TPL_NEW_SEGMENT" ${mkdocs_file} | cut -d ":" -f 1) - 1 ))
-  sed -i "${line}i ${mkdocs_line}" ${mkdocs_file}
-  sed -i "s/######/      /g" ${mkdocs_file}
+  line=$(( $(grep -n "TPL_NEW_SEGMENT" "${index_file}" | cut -d ":" -f 1) - 1 ))
+  sed -i "${line}i ${index_doc_array}" "${index_file}"
+  line=$(( $(grep -n "TPL_NEW_SEGMENT" "${readme_file}" | cut -d ":" -f 1) - 1 ))
+  sed -i "${line}i ${readme_doc_array}" "${readme_file}"
+  line=$(( $(grep -n "TPL_NEW_SEGMENT" "${all_segment_file}" | cut -d ":" -f 1) - 1 ))
+  sed -i "${line}i ${all_segment_doc_array}" "${all_segment_file}"
+  line=$(( $(grep -n "TPL_NEW_SEGMENT" "${mkdocs_file}" | cut -d ":" -f 1) - 1 ))
+  sed -i "${line}i ${mkdocs_line}" "${mkdocs_file}"
+  sed -i "s/######/      /g" "${mkdocs_file}"
   sed -e "s|TPL_SEGMENT_LOWER|${segment_name_lower}|g" \
       -e "s|TPL_SEGMENT_UPPER|${segment_name_upper}|g" \
       "${segment_template}" > "${new_segment_file}"
@@ -335,7 +333,7 @@ main()
     fi
     if [[ -n "${segment_short_desc}" ]] && [[ -n "${segment_name}" ]]
     then
-      segment_name=$(echo "${segment_name}" | tr [:upper:] [:lower:])
+      segment_name=$(echo "${segment_name}" | tr '[:upper:]' '[:lower:]')
       # As these method return 0 when everything is OK, we should convert this 0
       # to 1
       if ask_confirmation && create_new_segment_from_template

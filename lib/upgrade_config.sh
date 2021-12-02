@@ -44,6 +44,9 @@ _make_backup()
     do
       idx=$(( idx + 1 ))
     done
+    # - SC2295: Expansions inside ${..} need to be quoted separately, otherwise
+    #           they match as pattern
+    # shellcheck disable=SC2295
     prompt_debug "A backup of your file ${i_file##*${PROMPT_DIR}/} will be done and called ${backup_file##*${PROMPT_DIR}/}${idx}"
     cp "${i_file}" "${backup_file}${idx}"
   done
@@ -307,6 +310,8 @@ main()
   # Source debug method to print info
   old_shell="${SHELL}"
   SHELL="/bin/bash"
+  # - SC1091: Not following source, file does not exists
+  # shellcheck disable=SC1091
   source "${SCRIPTPATH}/debug.sh"
   export SHELL="${old_shell}"
   # Use both `FUNCNAME` for bash and `funcstack` for zsh
@@ -329,5 +334,5 @@ main
 
 # *****************************************************************************
 # EDITOR CONFIG
-# vim: ft=sh: ts=2: sw=2: sts=2
+# vim: ft=bash: ts=2: sw=2: sts=2
 # *****************************************************************************

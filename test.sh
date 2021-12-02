@@ -25,8 +25,6 @@
 # =============================================================================
 # Store absolute path of script
 SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1 ; pwd -P )"
-# Compute size of terminal
-TERMSIZE=$(tput cols)
 # Compute line to show true colors
 TRUE_COLORS_LINE=$(
   awk 'BEGIN{
@@ -176,14 +174,14 @@ ask_prompt_version()
 
   local answer=""
 
-  cat ${PROMPT_DIR}/prompt.sh  > ${PROMPT_DIR}/prompt_ci.bash
+  cat "${PROMPT_DIR}/prompt.sh" > "${PROMPT_DIR}/prompt_ci.bash"
   echo "\
 SHELL=\"/bin/bash\"
 CI=true
 DEBUG_MODE=\"true\"
 precmd
-echo -e \"\${PS1}\""  >> ${PROMPT_DIR}/prompt_ci.bash
-  chmod 755 ${PROMPT_DIR}/prompt_ci.bash
+echo -e \"\${PS1}\""  >> "${PROMPT_DIR}/prompt_ci.bash"
+  chmod 755 "${PROMPT_DIR}/prompt_ci.bash"
 
   clear
   while [[ ${answer} -ne 1 ]] && [[ ${answer} -ne 2 ]]
@@ -194,10 +192,14 @@ echo -e \"\${PS1}\""  >> ${PROMPT_DIR}/prompt_ci.bash
 |         ${E_BOLD}1: Version 1, the \"classic\" version${E_NORMAL}${E_INFO}                                 |"
 OLD_SHELL=${SHELL}
 SHELL="/bin/bash"
+# - SC2034: Variable appears unused
+# shellcheck disable=SC2034
 PROMPT_VERSION=1
 bash -c "${PROMPT_DIR}/prompt_ci.bash"
     echo -e "${E_INFO}\
 |         ${E_BOLD}2: Version 2, the \"powerline\" version${E_NORMAL}${E_INFO}                               |"
+# - SC2034: Variable appears unused
+# shellcheck disable=SC2034
 PROMPT_VERSION=2
 bash -c "${PROMPT_DIR}/prompt_ci.bash"
 SHELL=${OLD_SHELL}
@@ -259,7 +261,6 @@ ask_true_color_support()
 
   local answer=""
   clear
-  local true_color_support=""
   while ! [[ ${answer} =~ (y|Y|yes|YES|ye|YE|n|N|no|NO) ]]
   do
     echo -e "${E_INFO}\
@@ -454,13 +455,13 @@ run_docker()
     ${environment} \\
     ${volumes} \\
     -it \\
-    --name "${container_name}" \\
+    --name \"${container_name}\" \\
     --rm  \\
-    --hostname "${container_name}" "${image_name}" \\
-    "/bin/${shell}""
+    --hostname \"${container_name}\" \"${image_name}\" \\
+    \"/bin/${shell}\""
   docker run \
-    ${environment} \
-    ${volumes} \
+    "${environment}" \
+    "${volumes}" \
     -it \
     --name "${container_name}" \
     --rm  \

@@ -58,8 +58,9 @@ prompt_debug()
         clr="${!clr}"
         ;;
       *zsh)
-        # shellcheck disable=SC2154
-        #  SC2154: (P)clr is referenced but not assigned.
+        # - SC2154: (P)clr is referenced but not assigned.
+        # - SC2296: Parameter expansions can't start with (, Double check syntax.
+        # shellcheck disable=SC2154,SC2296
         clr="${(P)clr}"
         ;;
     esac

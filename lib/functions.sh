@@ -489,6 +489,8 @@ _compute_final_prompt_line()
         ;;
       *zsh)
         fg_clr="${fg_clr:u}"
+        # - SC2296: Parameter expansions can't start with (, Double check syntax.
+        # shellcheck disable=SC2296
         fg_clr="${(P)fg_clr}"
         ;;
     esac
@@ -626,13 +628,13 @@ _main_prompt()
     prompt_debug "INFO" "Computing prompt line ${idx_prompt_line} SEGMENT"
     # Avoid using subshell to compute prompt_line
     # https://unix.stackexchange.com/questions/334543/capture-the-output-of-a-shell-function-without-a-subshell
-    prompt_line="$(_prompt_line ${idx_prompt_line} "SEGMENT" "SEGMENT_PRIORITY")"
+    prompt_line="$(_prompt_line "${idx_prompt_line}" "SEGMENT" "SEGMENT_PRIORITY")"
     # If segment line is not empty
     if [[ -n "${prompt_line}" ]]
     then
       if [[ -z "${final_prompt}" ]]
       then
-        if [[ ${PROMPT_VERSION} -eq 1 ]] && ! [[ ${SEGMENT[@]} =~ "hfill" ]]
+        if [[ ${PROMPT_VERSION} -eq 1 ]] && ! [[ ${SEGMENT[*]} =~ "hfill" ]]
         then
           fg_clr="DEFAULT_BG"
           case ${SHELL} in
@@ -642,6 +644,9 @@ _main_prompt()
               ;;
             *zsh)
               fg_clr="${fg_clr:u}"
+              # - SC2296: Parameter expansions can't start with (, Double check
+              #           syntax.
+              # shellcheck disable=SC2296
               fg_clr="${(P)fg_clr}"
               ;;
           esac
@@ -705,5 +710,5 @@ _main_prompt()
 
 # *****************************************************************************
 # EDITOR CONFIG
-# vim: ft=sh: ts=2: sw=2: sts=2
+# vim: ft=bash: ts=2: sw=2: sts=2
 # *****************************************************************************

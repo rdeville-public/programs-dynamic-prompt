@@ -19,34 +19,6 @@ isolated_build=true
 skipsdist=true
 envlist=format_{python,shell},build_doc
 
-[testenv:format_python]
-# Allow external commands
-allowlist_externals=
-  /usr/bin/bash
-skip_install=true
-deps =
-  -r./requirements.dev.txt
-commands =
-  # Automatically sort import in python files
-  isort .
-  # Automatically format code
-  black ./
-  # Lint python files using pylint
-  bash -c '\
-    pylint \
-      $(find . -type f \\( \
-        -name "*.py" \
-        -not -path "./.*" \
-        -not -path "./docs/theme/*" \
-        -not -path "./docs/_data/*" \
-        -not -path "./python_venv/*" \
-        -not -path "./tmp/*" \
-        -not -path "./site**/*"  \\) )'
-  # Lint python files using flake8
-  flake8
-  # Ensure docstring convention (google is mkdocs rendering documentation)
-  pydocstyle --count --convention=google
-
 [testenv:format_shell]
 # Allow external commands
 allowlist_externals=

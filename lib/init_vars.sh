@@ -71,7 +71,10 @@ case ${SHELL} in
     # Do a variable name substitution to store content of arrays in segment
     # and segment_priority
     # See: http://zsh.sourceforge.net/Doc/Release/Expansion.html#Parameter-Expansion-Flags
+    # - SC2296: Parameter expansions can't start with (, Double check syntax.
+    # shellcheck disable=SC2296
     segment=${${(P)segment_name}}
+    # shellcheck disable=SC2296
     segment_priority=${(P)segment_priority_name}
     ;;
 esac
@@ -148,5 +151,5 @@ esac
 
 # *****************************************************************************
 # EDITOR CONFIG
-# vim: ft=sh: ts=2: sw=2: sts=2
+# vim: ft=bash: ts=2: sw=2: sts=2
 # *****************************************************************************
