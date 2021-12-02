@@ -25,7 +25,6 @@ allowlist_externals=
   /usr/bin/bash
 skip_install=true
 deps =
-  -r./requirements.prod.txt
   -r./requirements.dev.txt
 commands =
   # Automatically sort import in python files
@@ -53,7 +52,6 @@ allowlist_externals=
   /usr/bin/bash
 skip_install=true
 deps =
-  -r./requirements.prod.txt
   -r./requirements.dev.txt
 commands =
   # Linter bash script using shellcheck
