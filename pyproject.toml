@@ -38,6 +38,7 @@ commands =
         -name "*.py" \
         -not -path "./.*" \
         -not -path "./docs/theme/*" \
+        -not -path "./docs/_data/*" \
         -not -path "./python_venv/*" \
         -not -path "./tmp/*" \
         -not -path "./site**/*"  \\) )'
