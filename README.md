@@ -2,7 +2,7 @@
 <div align="center" style="text-align: center;">
 
   <!-- Project Title -->
-  <a href="https://framagit.org/rdeville.private/my_programs/dynamic_prompt">
+  <a href="https://framagit.org/rdeville.public/my_programs/dynamic_prompt">
     <img src="docs/assets/img/meta/dynamic_prompt_logo.png" width="100px">
     <h1>Dynamic Prompt</h1>
   </a>
@@ -29,11 +29,11 @@ platforms.
 
 --------------------------------------------------------------------------------
 
-[repo_url]: https://framagit.org/rdeville.private/my_programs/dynamic_prompt
+[repo_url]: https://framagit.org/rdeville.public/my_programs/dynamic_prompt
 [license_badge]: https://img.shields.io/badge/License-MIT%2FBeer%20Ware-blue?style=flat-square&logo=open-source-initiative
 [license]: LICENSE
-[build_status_badge]: https://framagit.org/rdeville.private/my_programs/dynamic_prompt/badges/master/pipeline.svg?style=flat-square&logo=appveyor
-[build_status]: https://framagit.org/rdeville.private/my_programs/dynamic_prompt/commits/master
+[build_status_badge]: https://framagit.org/rdeville.public/my_programs/dynamic_prompt/badges/master/pipeline.svg?style=flat-square&logo=appveyor
+[build_status]: https://framagit.org/rdeville.public/my_programs/dynamic_prompt/commits/master
 
 ## Table of Content
 
@@ -94,4 +94,4 @@ You can now browse the full documentation by visiting
 
 <!-- END MKDOCS TEMPLATE -->
 
-[online_doc]: https://docs.romaindeville.fr/rdeville.private/my_programs/dynamic_prompt/index.html
+[online_doc]: https://docs.romaindeville.fr/rdeville.public/my_programs/dynamic_prompt/index.html
