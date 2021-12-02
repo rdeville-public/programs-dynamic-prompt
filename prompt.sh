@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -25,6 +27,7 @@
 # =============================================================================
 precmd()
 {
+  # """TODO"""
   # Main method call before letting the user typing input command.
   # Nothing to do for zsh, which will automatically use it
   # For bash, need to add following lines in the ~/.bashrc
