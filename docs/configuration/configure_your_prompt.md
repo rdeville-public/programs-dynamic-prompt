@@ -340,7 +340,7 @@ That's being said, there is now three things two configure:
 
 <!-- Local link to the documentation-->
 [prompt_lines_configuration]: ./prompt_lines_configuration.md
-[home]: ../README.md
+[home]: ../index.md
 [testing]: ../../getting_started/#testing-the-prompt
 [add_terminal_emulator_support]: ../adding-features/add_terminal_support.md
 [unicode_support]: #unicode-support

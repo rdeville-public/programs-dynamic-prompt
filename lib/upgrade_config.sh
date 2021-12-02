@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1 ; pwd -P )"
 # =============================================================================
 _make_backup()
 {
+  # """TODO"""
   # Make a backup of the files and inform the user where this backup is
   # *PARAM $1: sting, type of variables that need to be ugpraded, used for
   #            backup suffix
@@ -55,6 +58,7 @@ _make_backup()
 
 _ask_confirmation()
 {
+  # """TODO"""
   # Ask user if he/she wants to upgrade its configuration variables
   # *PARAM $1: sting, type of variables that need to be ugpraded
 
@@ -87,6 +91,7 @@ _ask_confirmation()
 
 _check_segment_version()
 {
+  # """TODO"""
   # Check if files in ${PROMPT_DIR}/hosts have string describing old segment
   # variables, if yes, register these files to be upgraded
   # NO PARAM
@@ -123,6 +128,7 @@ _check_segment_version()
 
 _upgrade_segment_config()
 {
+  # """TODO"""
   # Upgrade colors variables in configuration files
   # NO PARAM
 
@@ -164,6 +170,7 @@ _upgrade_segment_config()
 
 _check_colors_version()
 {
+  # """TODO"""
   # Check if files in ${PROMPT_DIR}/hosts have string describing colors prefix,
   # like  "38;2", "38;5", if yes, register these files to be upgraded
   # NO PARAM
@@ -203,7 +210,9 @@ _check_colors_version()
 }
 
 
-_upgrade_colors_config(){
+_upgrade_colors_config()
+{
+  # """TODO"""
   # Upgrade colors variables in configuration files
   # NO PARAM
 
@@ -266,6 +275,7 @@ _upgrade_colors_config(){
 
 _process_color_var()
 {
+  # """TODO"""
   # Check if colors variables need to be upgraded, if yes, upgraded files
   # NO PARAM
 
@@ -285,6 +295,7 @@ _process_color_var()
 
 _process_segment_var()
 {
+  # """TODO"""
   # Check if segment variables need to be upgraded, if yes, upgraded files
   # NO PARAM
 
@@ -304,6 +315,7 @@ _process_segment_var()
 
 main()
 {
+  # """TODO"""
   # Main method that that check if there is files that need to be upgraded
   # NO PARAM
 

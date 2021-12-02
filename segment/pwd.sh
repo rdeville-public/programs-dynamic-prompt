@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local PWD_BG="${PWD_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_pwd_info()
 {
+  # """TODO"""
   # Compute current pwd, replace ${HOME} by ~.
   # NO PARAM
 
@@ -42,6 +45,7 @@ _compute_pwd_info()
 
 _compute_pwd_info_short()
 {
+  # """TODO"""
   # Compute pwd short version such that path will :
   #  - start by ~/ if in ${HOME}, else by /
   #  - middle content of path will be compressed by ...
@@ -91,7 +95,9 @@ _compute_pwd_info_short()
 
 # REQUIRED METHODS
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-_pwd_info(){
+_pwd_info()
+{
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -120,6 +126,7 @@ _pwd_info(){
 
 _pwd_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -48,6 +50,7 @@ local VCS_PROMPT_CLEAN_FG="${CLR_PREFIX}${CLR_FG_PREFIX}${VCS_PROMPT_CLEAN_FG:-$
 # =============================================================================
 __vcs_determine_soft()
 {
+  # """TODO"""
   # Search for vcs software used and if within a versionned repo
   # NO PARAM
 
@@ -62,6 +65,7 @@ __vcs_determine_soft()
 
 _compute_vcs_info()
 {
+  # """TODO"""
   # If vcs_software is not empty, this means that within a supported versionned
   # folder. Compute the states of the repo to be print. The output of this
   # method does not use segment inner color
@@ -94,6 +98,7 @@ _compute_vcs_info()
 
 _compute_vcs_info_clr()
 {
+  # """TODO"""
   # If vcs_software is not empty, this means that within a supported versionned
   # folder. Compute the states of the repo to be print. The output of this
   # method use segment inner color
@@ -119,6 +124,7 @@ _compute_vcs_info_clr()
 
 _compute_vcs_info_short()
 {
+  # """TODO"""
   # If vcs_software is not empty, this means that within a supported versionned
   # folder. Output the vcs char
   # If DEBUG_MODE exists, force the output of the segment
@@ -141,6 +147,7 @@ _compute_vcs_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _vcs_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -169,6 +176,7 @@ _vcs_info()
 
 _vcs_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

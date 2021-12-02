@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local KUBE_BG="${KUBE_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_kube_content()
 {
+  # """TODO"""
   # Compute the content of the kube segment of the form
   # kube_context:kube_namespace
   # NO PARAM
@@ -52,6 +55,7 @@ _compute_kube_content()
 
 _compute_kube_info()
 {
+  # """TODO"""
   # If environment variable KUBE_ENV existss and is not equal to 0, get the
   # kubernetes current context and namespace and print them with the kube char.
   # If DEBUG_MODE exists, force the output of the segment
@@ -76,6 +80,7 @@ _compute_kube_info()
 
 _compute_kube_info_short()
 {
+  # """TODO"""
   # If environment variable KUBE_ENV print the keepass char
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -101,6 +106,7 @@ _compute_kube_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _kube_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -129,6 +135,7 @@ _kube_info()
 
 _kube_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

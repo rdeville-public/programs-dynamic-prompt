@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local TMUX_BG="${TMUX_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_tmux_info()
 {
+  # """TODO"""
   # If global variable TMUX exists, output tmux char to the current Pane and
   # Windows name
   # If DEBUG_MODE exists, force the output of the segment
@@ -49,6 +52,7 @@ _compute_tmux_info()
 
 _compute_tmux_info_short()
 {
+  # """TODO"""
   # If global variable TMUX exists, output tmux char
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -69,6 +73,7 @@ _compute_tmux_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _tmux_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -97,6 +102,7 @@ _tmux_info()
 
 _tmux_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

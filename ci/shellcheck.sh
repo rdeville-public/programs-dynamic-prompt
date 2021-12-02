@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # DESCRIPTION:
 # =============================================================================
@@ -19,6 +21,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1; pwd -P )"
 # =============================================================================
 main()
 {
+  # """TODO"""
   # Main method that run shellcheck on each .sh files in the repo.
   # If shell check does not pass on a file, exit without continuing on another
   # file

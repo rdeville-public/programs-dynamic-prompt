@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """Script to create a base new segment from template
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1; pwd -P )"
 # =============================================================================
 usage()
 {
+  # """TODO"""
   # Print the usage of the script
   # NO PARAM
 
@@ -73,6 +76,7 @@ ${E_BOLD} OPTIONS${E_NORMAL}
 
 check_new_segment_script_exist()
 {
+  # """TODO"""
   # Ensure a segment file with the name of the new segment user want to create
   # does not exists
   # NO PARAM
@@ -96,6 +100,7 @@ ${E_NORMAL}"
 
 init_new_segment_script()
 {
+  # """TODO"""
   # Create an initialized segment file from the template segment/segment.sh.tpl
   # in segment such as name of the script holding the segment is
   # segment/new_segment_name.sh where new_segment_name is choosen by the user
@@ -125,7 +130,9 @@ init_new_segment_script()
 }
 
 
-init_new_segment_documentation(){
+init_new_segment_documentation()
+{
+  # """TODO"""
   # Initialize local variable
   local segment_name_lower
   local segment_name_upper
@@ -170,7 +177,9 @@ init_new_segment_documentation(){
 
 }
 
-create_new_segment_from_template(){
+create_new_segment_from_template()
+{
+  # """TODO"""
   # Check if segment does not already exists, if not init the script and the
   # documentation.
   # NO PARAM
@@ -188,6 +197,7 @@ create_new_segment_from_template(){
 
 ask_confirmation()
 {
+  # """TODO"""
   # Recap user parameter and present what will be done
   # NO PARAM
   while [[ ${answer} -ne 1 ]] && [[ ${answer} -ne 2 ]]
@@ -220,6 +230,7 @@ ${E_NORMAL}"
 
 ask_segment_short_desc()
 {
+  # """TODO"""
   # Ask the user the short desc of the new segment
   # NO PARAM
 
@@ -254,6 +265,7 @@ ${E_NORMAL}"
 
 ask_segment_name()
 {
+  # """TODO"""
   # Ask the user the name of the new segment
   # NO PARAM
 
@@ -287,6 +299,7 @@ ask_segment_name()
 
 main()
 {
+  # """TODO"""
   # Main method that ask the user the segment name if not provided, then check
   # if segment with same name already exists, if not create the new segment from
   # template.

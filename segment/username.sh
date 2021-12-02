@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local USERNAME_BG="${USERNAME_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_username_info()
 {
+  # """TODO"""
   # Output username char and the name of the current username
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -49,6 +52,7 @@ _compute_username_info()
 
 _compute_username_info_short()
 {
+  # """TODO"""
   # Output username char if username is non-empty
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -70,6 +74,7 @@ _compute_username_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _username_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -98,6 +103,7 @@ _username_info()
 
 _username_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

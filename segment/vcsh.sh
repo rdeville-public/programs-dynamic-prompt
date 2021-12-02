@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local VCSH_BG="${VCSH_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_vcsh_info()
 {
+  # """TODO"""
   # If VCSH_REPO_NAME variable exists, output vcsh char and repo name
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -48,6 +51,7 @@ _compute_vcsh_info()
 
 _compute_vcsh_info_short()
 {
+  # """TODO"""
   # If VCSH_REPO_NAME variable exists, output vcsh char
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -68,6 +72,7 @@ _compute_vcsh_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _vcsh_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -96,6 +101,7 @@ _vcsh_info()
 
 _vcsh_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

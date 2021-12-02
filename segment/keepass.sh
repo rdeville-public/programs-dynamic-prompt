@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local KEEPASS_BG="${KEEPASS_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_keepass_info()
 {
+  # """TODO"""
   # If environment variable KEEPASS_NAME exists, print the keepass char and the
   # keepass name
   # If DEBUG_MODE exists, force the output of the segment
@@ -49,6 +52,7 @@ _compute_keepass_info()
 
 _compute_keepass_info_short()
 {
+  # """TODO"""
   # If environment variable KEEPASS_NAME exists, print the keepass char
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -69,6 +73,7 @@ _compute_keepass_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _keepass_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -97,6 +102,7 @@ _keepass_info()
 
 _keepass_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

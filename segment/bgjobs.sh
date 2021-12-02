@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Emmanuel Coquery <emmanuel.coquery@univ-lyon1.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -31,6 +33,7 @@ local BGJOBS_BG="${BGJOBS_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_bgjobs_info()
 {
+  # """TODO"""
   # If the output of the command is not null, print the bgjobs char
   # and the number of current background jobs
   # If DEBUG_MODE exists, force the output of the segment
@@ -51,6 +54,7 @@ _compute_bgjobs_info()
 
 _compute_bgjobs_short()
 {
+  # """TODO"""
   # If the output of the command is not null, print the bgjobs char
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -72,6 +76,7 @@ _compute_bgjobs_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _bgjobs_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -100,6 +105,7 @@ _bgjobs_info()
 
 _bgjobs_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

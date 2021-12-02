@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -25,6 +27,7 @@
 # =============================================================================
 _prompt_printf()
 {
+  # """TODO"""
   # Repeat the string passed as $1 for a given amount of time provided as $1
   # *PARAM $1: string, the string to be repeated
   # *PARAM $2: integer, the number of times the string $1 must be repeated
@@ -38,6 +41,7 @@ _prompt_printf()
 
 _string_width()
 {
+  # """TODO"""
   # Compute the size, in term of block for the string passed as $1.
   # *PARAM $1: String, the string for which retrieve its size
   case "$(cat /etc/issue)" in
@@ -55,6 +59,7 @@ _string_width()
 
 _check_terminal_emulator()
 {
+  # """TODO"""
   # Method which check the terminal application, depending on its value,
   # fall back automatically to PROMPT_VERSION 1
   # NO PARAM
@@ -79,9 +84,9 @@ _check_terminal_emulator()
   fi
 }
 
-
 _load_all_segment()
 {
+  # """TODO"""
   # Print the output of all segment referenced in the variable array ${segment}
   # This method should be used with source, like `source <(_load_all_segment)
   # NO PARAM
@@ -98,6 +103,7 @@ _load_all_segment()
 
 _source_variables()
 {
+  # """TODO"""
   # Print the output of  default variable then user defined variables in
   # hosts/common.sh and in hosts/$(hostname).sh if these files exists.
   # This method should be used with source, like `source <(_source_variables)
@@ -116,6 +122,7 @@ _source_variables()
 
 _compute_segment_content_v1()
 {
+  # """TODO"""
   # Update the array segment_content with segment separator if needed
   # NO PARAM
 
@@ -133,6 +140,7 @@ _compute_segment_content_v1()
 
 _compute_segment_content_v2()
 {
+  # """TODO"""
   # Update the array segment_content with segment separator
   # NO PARAM
 
@@ -144,6 +152,7 @@ _compute_segment_content_v2()
 
 _compute_segment_content_short_v1()
 {
+  # """TODO"""
   # Update the array segment_content_short with segment separator if needed
   # NO PARAM
 
@@ -159,9 +168,9 @@ _compute_segment_content_short_v1()
   fi
 }
 
-
 _compute_segment_content_short_v2()
 {
+  # """TODO"""
   # Update the array segment_content with segment separator
   # NO PARAM
 
@@ -170,9 +179,9 @@ _compute_segment_content_short_v2()
   segment_content_short[$segment_name]="${segment_right_separator} ${segment_content_short[$segment_name]} ${segment_left_separator}"
 }
 
-
 _recompute_segment_pwd_content_short_v1()
 {
+  # """TODO"""
   # Update segment_content of special segment pwd when resizing prompt lines
   # NO PARAM
 
@@ -182,9 +191,9 @@ _recompute_segment_pwd_content_short_v1()
   segment_content[pwd]=" ${segment_content_short[pwd]}"
 }
 
-
 _recompute_segment_pwd_content_short_v2()
 {
+  # """TODO"""
   # Update segment_content of special segment pwd when resizing prompt lines
   # NO PARAM
 
@@ -193,9 +202,9 @@ _recompute_segment_pwd_content_short_v2()
   segment_content[pwd]="${segment_right_separator} ${segment_content_short[pwd]} ${segment_left_separator}"
 }
 
-
 _compute_hfill_size()
 {
+  # """TODO"""
   # Compute the size of special hfill segment by updating content of
   # segment_content and segment_content_short arrays which store content of
   # segment without colors.
@@ -314,9 +323,9 @@ _compute_hfill_size()
   prompt_debug "DEBUG" "Size of final hfill : ${#hfill}"
 }
 
-
 _compute_final_prompt_line_v1()
 {
+  # """TODO"""
   # Compute the content of the prompt line in the final form, i.e. with colored
   # segment.
   # NO PARAM
@@ -345,9 +354,9 @@ _compute_final_prompt_line_v1()
   fi
 }
 
-
 _compute_final_prompt_line_v2()
 {
+  # """TODO"""
   # Compute the content of the prompt line in the final form, i.e. with colored
   # segment. The main part is to check the next non-empty segment to set the
   # segment separator accordingly
@@ -402,9 +411,9 @@ _compute_final_prompt_line_v2()
   fi
 }
 
-
 _compute_final_hfill_content_v1()
 {
+  # """TODO"""
   # Add the content of hfill to the prompt line. No need to manage background
   # colors because already set for v1 during initialization of the prompt line
   # in _init_final_prompt_line
@@ -419,9 +428,9 @@ _compute_final_hfill_content_v1()
   fi
 }
 
-
 _compute_final_hfill_content_v2()
 {
+  # """TODO"""
   # Compute content of hfill in its final form, i.e. colored for first line
   # empty for others lines
   # NO PARAM
@@ -449,9 +458,9 @@ _compute_final_hfill_content_v2()
   segment_left_separator=""
 }
 
-
 _compute_final_prompt_line()
 {
+  # """TODO"""
   # Compute the final content of the prompt line from previously computed
   # responsivness.
   # *PARAM $1 : integer, the index of the arrays SEGMENT and SEGMENT_PRIORITY to
@@ -502,9 +511,9 @@ _compute_final_prompt_line()
   fi
 }
 
-
 _init_segment_separator_v1()
 {
+  # """TODO"""
   # Set the segment separator for v2
   # NO PARAM
 
@@ -512,9 +521,9 @@ _init_segment_separator_v1()
   segment_left_separator="${PROMPT_ENV_LEFT}"
 }
 
-
 _init_segment_separator_v2()
 {
+  # """TODO"""
   # Set the segment separator for v2
   # NO PARAM
 
@@ -522,9 +531,9 @@ _init_segment_separator_v2()
   segment_left_separator="${PROMPT_ENV_LEFT}"
 }
 
-
 _init_final_prompt_line()
 {
+  # """TODO"""
   # Initialize the starting of the prompt line, such as setting bold when root
   # user, fill line with background color if v1, etc.
   # NO PARAM
@@ -543,9 +552,9 @@ _init_final_prompt_line()
   fi
 }
 
-
 _prompt_line()
 {
+  # """TODO"""
   # Method that compute a line of prompt from a given array and priority array.
   # *PARAM $1 : integer, the index of the arrays SEGMENT and SEGMENT_PRIORITY to
   #             consider
@@ -594,11 +603,11 @@ _prompt_line()
   echo -e "${prompt_line}"
 }
 
-
 # SC2155: Declare and assign separately to avoid masking return values.
 # shellcheck disable=SC2155
 _main_prompt()
 {
+  # """TODO"""
   # Use both `FUNCNAME` for bash and `funcstack` for zsh
   prompt_debug "INFO" "Entering ${FUNCNAME[0]}${funcstack[1]}"
   # Declare local variable

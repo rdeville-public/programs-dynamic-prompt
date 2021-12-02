@@ -220,7 +220,6 @@ Supported segments/environment are :
 | [vcsh](configuration/segments/vcsh.md)               | Name of the vcsh repo                   |
 | [vcs](configuration/segments/vcs.md)                 | Version control informations            |
 | [virtualenv](configuration/segments/virtualenv.md)   | Virtual environment informations        |
-| [date](configuration/segments/date.md) | Show the date |
 <!-- TPL_NEW_SEGMENT (Comment for the script `new_segment.sh` DO NOT DELETE !!!-->
 
 </center>
@@ -345,13 +344,12 @@ below for both versions.
 
 If you want to try this prompt, view how to configure it and more:
 
-  * Visit the [documentation][documentation].
-    * Check the [Getting started][getting_started] to get the code and learn how
-      to test the prompt.
-    * Look at [Configure your prompt][configure_your_prompt] to start
-      customizing your prompt.
-    * Look at [Add your own segment][dynamic_prompt_add_segment] to add your own
-      segment easily.
+  * Check the [Getting started][getting_started] to get the code and learn how
+    to test the prompt.
+  * Look at [Configure your prompt][configure_your_prompt] to start
+    customizing your prompt.
+  * Look at [Add your own segment][dynamic_prompt_add_segment] to add your own
+    segment easily.
   * Look at the Project [release notes][release_notes].
   * Check the [FAQ & Known Issues][FAQ].
   * Want to [contribute][contributing] ?
@@ -382,7 +380,6 @@ features and/or you want to contribute in any way, I will be glad to help you.
 [liquidprompt]: https://github.com/nojhan/liquidprompt
 
 <!-- link "local" to this documentation -->
-[documentation]: README.md
 [getting_started]: getting_started.md
 [configure_your_prompt]: configuration/configure_your_prompt.md
 [dynamic_prompt_add_segment]: adding-features/add_segment.md

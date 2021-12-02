@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local OPENSTACK_BG="${OPENSTACK_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_openstack_info()
 {
+  # """TODO"""
   # If environment variables OS_USER_DOMAIN_NAME and OS_PROJECT_NAME  exists,
   # print the openstack char and the openstack info
   # If DEBUG_MODE exists, force the output of the segment
@@ -49,6 +52,7 @@ _compute_openstack_info()
 
 _compute_openstack_info_short()
 {
+  # """TODO"""
   # If environment variables OS_USER_DOMAIN_NAME and OS_PROJECT_NAME  exists,
   # print the openstack char
   # If DEBUG_MODE exists, force the output of the segment
@@ -70,6 +74,7 @@ _compute_openstack_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _openstack_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -98,6 +103,7 @@ _openstack_info()
 
 _openstack_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

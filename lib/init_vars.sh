@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -15,11 +17,11 @@
 
 # DESCRIPTION
 # =============================================================================
-# Script which initialized variable needed by method `_prompt_line()` in
+# Script which initialized variable needed by method `_prompt_line` in
 # `functions.sh`.
 # Initialization done by code `source<$(cat ${PROMPT}/lib/init_vars.sh)`,
 # allowing to use `local` in scripts.
-# PARAM $1, $2 and $3 are defined in "docstring" of the method `_prompt_line()`.
+# PARAM $1, $2 and $3 are defined in "docstring" of the method `_prompt_line`.
 
 # VARIABLES
 # =============================================================================

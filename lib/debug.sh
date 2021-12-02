@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -16,6 +18,7 @@
 # =============================================================================
 prompt_debug()
 {
+  # """TODO"""
   # Method that print a string depending of the debug level asked by the user.
   # The more debug level is high, the more information will be shown.
   # Error message, i.e. string with debug severity of 0, are always shown !
@@ -104,5 +107,5 @@ prompt_debug()
 
 # *****************************************************************************
 # EDITOR CONFIG
-# vim: ft=sh: ts=2: sw=2: sts=2
+# vim: ft=bash: ts=2: sw=2: sts=2
 # *****************************************************************************

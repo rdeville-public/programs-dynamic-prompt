@@ -1,8 +1,9 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +31,7 @@ local HOSTNAME_BG="${HOSTNAME_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_hostname_info()
 {
+  # """TODO"""
   # If the output of the command is non-empty, print the hostname char
   # and the content of the output of the command.
   # If DEBUG_MODE exists, force the output of the segment
@@ -50,6 +52,7 @@ _compute_hostname_info()
 
 _compute_hostname_info_short()
 {
+  # """TODO"""
   # Output hostname char if hostname is non-empty
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
@@ -71,6 +74,7 @@ _compute_hostname_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _hostname_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -99,6 +103,7 @@ _hostname_info()
 
 _hostname_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

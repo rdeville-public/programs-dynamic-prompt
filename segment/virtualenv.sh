@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -30,6 +32,7 @@ local VIRTUALENV_BG="${VIRTUALENV_BG:-${DEFAULT_BG}}"
 # =============================================================================
 _compute_virtualenv_info()
 {
+  # """TODO"""
   # If global variable VIRTUAL_ENV exists, means we are in a python virtual
   # environment (for now, only python is supported). Then print the virtual env
   # char, the python version and the name of the virtualenv
@@ -60,6 +63,7 @@ _compute_virtualenv_info()
 
 _compute_virtualenv_info_short()
 {
+  # """TODO"""
   # If global variable VIRTUAL_ENV exists, means we are in a python virtual
   # environment (for now, only python is supported). Then print the virtual env
   # char.
@@ -82,6 +86,7 @@ _compute_virtualenv_info_short()
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 _virtualenv_info()
 {
+  # """TODO"""
   # Required method to get segment in long format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content:
@@ -106,6 +111,7 @@ _virtualenv_info()
 
 _virtualenv_info_short()
 {
+  # """TODO"""
   # Required method to get segment in short format. If segment content is
   # non-empty, update arrays used to compute prompt lines. Arrays are such:
   # - segment_content_short:

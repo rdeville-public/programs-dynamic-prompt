@@ -1293,7 +1293,7 @@ And finally, you can propose your merge request as explain in :
 [mkdocs]: https://www.mkdocs.org/
 [main_repo]: https://framagit.org/rdeville/dynamic-prompt/-/blob/master/README.md
 
-[home]: ../README.md
+[home]: ../index.md
 [all_supported_segments]: ../configuration/all_supported_segments.md
 [quick_look]: #quick-look
 [adding_inner_colors]: #adding-inner-colors

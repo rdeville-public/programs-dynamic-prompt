@@ -1,8 +1,10 @@
 #!/bin/bash
-# *****************************************************************************
-# License : GNU General Public License v3.0
-# Author  : Romain Deville <contact@romaindeville.fr>
-# *****************************************************************************
+# """TODO
+#
+# DESCRIPTION:
+#   TODO
+#
+# """
 
 # SHELLCHECK
 # =============================================================================
@@ -43,7 +45,9 @@ TRUE_COLORS_LINE=$(
 
 # METHODS
 # =============================================================================
-usage(){
+usage()
+{
+  # """TODO"""
   # Manual page describing usage of script
   # NO PARAM
 
@@ -133,9 +137,10 @@ ${E_BOLD} OPTIONS${E_NORMAL}
 }
 
 
-ask_shell_to_test(){
+ask_shell_to_test()
+{
+  # """TODO"""
   # Ask the user which shell (bash/zsh) to test
-  # NO PARAM
 
   local answer=""
   clear
@@ -169,8 +174,8 @@ ${E_NORMAL}"
 
 ask_prompt_version()
 {
+  # """TODO"""
   # Ask user which version of the prompt to test
-  # NO PARAM
 
   local answer=""
 
@@ -224,8 +229,8 @@ ${E_NORMAL}"
 
 ask_unicode_support()
 {
+  # """TODO"""
   # Ask the user if its terminal emulator support unicode
-  # NO PARAM
 
   local answer=""
   clear
@@ -256,8 +261,8 @@ ${E_NORMAL}"
 
 ask_true_color_support()
 {
+  # """TODO"""
   # Ask user if his/her terminal emulator support true colors
-  # NO PARAM
 
   local answer=""
   clear
@@ -287,9 +292,10 @@ ${E_NORMAL}"
   done
 }
 
-ask_debug_level(){
+ask_debug_level()
+{
+  # """TODO"""
   # Ask the user the debug level he/she want to use in the container
-  # NO PARAM
 
   local answer
   clear
@@ -321,9 +327,9 @@ ${E_NORMAL}"
 
 ask_mount()
 {
+  # """TODO"""
   # Ask user if he/she wants to mount the prompt folder to prepare or work on
   # configuration or if he/she does want to, in order to work on development
-  # NO PARAM
 
   local answer
   clear
@@ -361,8 +367,8 @@ ${E_NORMAL}"
 
 ask_confirmation()
 {
+  # """TODO"""
   # Recap user parameter and present what will be done
-  # NO PARAM
 
   local cmd="./test.sh -b -s ${shell} -p ${prompt_version} -a ${shell_app} -d ${debug_level}"
   if [[ ${mount} == "true" ]]
@@ -407,8 +413,8 @@ ${E_NORMAL}"
 
 build_docker_image()
 {
+  # """TODO"""
   # Build the docker image if not already built
-  # NO PARAM
 
   local dockerfile_path
   local curr_pwd=$(pwd)
@@ -431,8 +437,8 @@ build_docker_image()
 
 run_docker()
 {
+  # """TODO"""
   # Run the docker to test the user provided bash
-  # NO PARAM
 
   local volumes=""
   local environment=""
@@ -473,6 +479,7 @@ run_docker()
 
 parse_args()
 {
+  # """TODO"""
   while [[ $# -gt 0 ]]
   do
     case $1 in
@@ -514,8 +521,9 @@ parse_args()
 
 main()
 {
+  # """TODO"""
   # Main method launching menus to ask user parameter
-  # NO PARAM or $@ corresponding to arguments described in usage()
+  # NO PARAM or $@ corresponding to arguments described in usage
 
   # Source debug method
   source "${SCRIPTPATH}/lib/debug.sh"
