@@ -56,8 +56,8 @@ documentation is jointly stored within the repository).
 
 To do so, you will need the following requirements:
 
-* Python >= 3.8
-* Pip3 with Python >= 3.8
+  * Python >= 3.8
+  * Pip3 with Python >= 3.8
 
 First setup a temporary python virtual environment and activate it:
 

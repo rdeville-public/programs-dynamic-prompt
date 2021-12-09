@@ -1,3 +1,4 @@
+
 ### BEGIN MKDOCS TEMPLATE ###
 ### WARNING, DO NOT UPDATE CONTENT BETWEEN MKDOCS TEMPLATE TAG !###
 ### Modified content will be overwritten when updating.###
@@ -61,15 +62,6 @@ variables:
       bash
       git
       gcc
-      py3-pip
-      gcc
-      musl-dev
-      pango
-      zlib-dev
-      jpeg-dev
-      openjpeg-dev
-      g++
-      libffi-dev
   # Create virtual environment
   - virtualenv .venv
   # Activate virtual environment
@@ -305,13 +297,28 @@ build_html:
   <<: *stage_build
   before_script:
     - *before_script_python_dependencies
-    - *before_script_export_variable
-    - *before_script_prepare_deployment
   script:
     # Install python documentations requirements
     - pip3 install -r requirements.docs.txt
     # Build the documentation
     - mkdocs build
+  artifacts:
+    paths:
+      - site/
+
+# Jobs in deploy stage
+# -----------------------------------------------------------------------------
+# Template jobs script deploy previously built html documentation.
+script_deploy_html: &script_deploy_html
+  <<: *tag_docker
+  <<: *image_docker
+  <<: *stage_deploy
+  needs:
+    - build_html
+  before_script:
+    - *before_script_export_variable
+    - *before_script_prepare_deployment
+  script:
     - git fetch --all
     - export LAST_TAG="$(git describe --tags `git rev-list --tags --max-count=1`)"
     - export LAST_TAG="${LAST_TAG/v/}"
@@ -372,84 +379,10 @@ build_html:
       </body>\n
       </html>" > tmp/${PROJECT_PATH}/index.html
     - rsync -Oavz "tmp/" "${RSYNC_DEST}"
-#  artifacts:
-#    paths:
-#      - site/
   rules:
     - *rules_prod
     - *rules_pre_prod
     - *rules_dev
-
-# Jobs in deploy stage
-# -----------------------------------------------------------------------------
-# Template jobs script deploy previously built html documentation.
-#script_deploy_html: &script_deploy_html
-#  <<: *tag_docker
-#  <<: *image_docker
-#  <<: *stage_deploy
-#  needs:
-#    - build_html
-#  script:
-#    - git fetch --all
-#    - export LAST_TAG="$(git describe --tags `git rev-list --tags --max-count=1`)"
-#    - export LAST_TAG="${LAST_TAG/v/}"
-#    - export LAST_TAG="${LAST_TAG%.*}"
-#    - |
-#      case "${CI_DEPLOY_TYPE}" in
-#        "dev")
-#          if [[ -n "${RSYNC_BASE_PATH}" ]];
-#          then
-#            export PROJECT_PATH="/${CI_COMMIT_BRANCH}/${RSYNC_BASE_PATH}/";
-#          else
-#            export PROJECT_PATH="/${CI_COMMIT_BRANCH}/"
-#          fi
-#          ;;
-#        "pre_prod")
-#          if [[ -n "${RSYNC_BASE_PATH}" ]];
-#          then
-#            export PROJECT_PATH="/${CI_COMMIT_BRANCH}/${RSYNC_BASE_PATH}/";
-#          else
-#            export PROJECT_PATH="/${CI_COMMIT_BRANCH}/"
-#          fi
-#          ;;
-#        "prod")
-#          if [[ -n "${RSYNC_BASE_PATH}" ]];
-#          then
-#            export PROJECT_PATH="/${RSYNC_BASE_PATH}/";
-#          else
-#            export PROJECT_PATH="/"
-#          fi
-#          ;;
-#      esac
-#    - export RSYNC_PATH="${PROJECT_PATH}${LAST_TAG}"
-#    - export ONLINE_PATH="${ONLINE_DEST}${PROJECT_PATH}latest"
-#    - mkdir -p "tmp/${RSYNC_PATH}"
-#    - mv site/* "tmp/${RSYNC_PATH}/"
-#    - |
-#      if [[ -f "tmp/${RSYNC_PATH}/versions.json" ]]
-#      then
-#        cp tmp/${RSYNC_PATH}/versions.json tmp/${RSYNC_PATH}/../versions.json
-#      fi
-#    - ln -s "${LAST_TAG}" "latest"
-#    - mv "latest" "tmp/${PROJECT_PATH}"
-#    - echo -e "
-#      <!DOCTYPE html>\n
-#      <html>\n
-#      <head>\n
-#        <meta charset='utf-8'>\n
-#        <title>Redirecting</title>\n
-#        <noscript>\n
-#          <meta http-equiv='refresh' content='1; url=${ONLINE_PATH}' />\n
-#        </noscript>\n
-#        <script>\n
-#          window.location.replace('${ONLINE_PATH}');\n
-#        </script>\n
-#      </head>\n
-#      <body>\n
-#        Redirecting to <a href='${ONLINE_PATH}'>${ONLINE_PATH}</a>...\n
-#      </body>\n
-#      </html>" > tmp/${PROJECT_PATH}/index.html
-#    - rsync -Oavz "tmp/" "${RSYNC_DEST}"
 
 # Jobs in post_deploy stage
 # -----------------------------------------------------------------------------
@@ -491,3 +424,4 @@ inform_triggers_variables:
 # vim: fdm=indent
 # *****************************************************************************
 ### END MKDOCS TEMPLATE ###
+
