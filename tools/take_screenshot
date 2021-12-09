@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+
+# SHELLCHECK
+# =============================================================================
+# Globally disable some shellcheck warning
+# shellcheck disable=SC1090
+# SC1090: Can't follow non-constant source. Use a directive to specify
+#         location.
+# see: https://github.com/koalaman/shellcheck/wiki/SC1090
+
+# VARIABLES
+# =============================================================================
+# Store absolute path of script
+SCRIPTPATH="$( cd "$(dirname "$0")" || exit 1; pwd -P )"
+
+source "${SCRIPTPATH}/vars.sh"
+
+resize_screenshot()
+{
+  local window_idx
+  local version
+  local filename
+  for ((i=0;i<10;i++))
+  do
+    for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+    do
+      window_idx=${WINDOWS_ID[idx]}
+      idx=$(( idx + 1 ))
+      version=${WINDOWS_ID[idx]}
+      filename=${version}_0$i.png
+      mkdir -p "resized/${version}/"
+      echo "${filename}"
+      convert \
+        "src/${version}/${filename}" \
+        -background black \
+        -extent 1900x100 \
+        "resized/${version}/${filename/.png/_resize.png}"
+    done
+  done
+
+  for ((i=10;i<20;i++))
+  do
+    for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+    do
+      window_idx=${WINDOWS_ID[idx]}
+      idx=$(( idx + 1 ))
+      version=${WINDOWS_ID[idx]}
+      filename=${version}_$i.png
+      mkdir -p "resized/${version}/"
+      echo "${filename}"
+      convert \
+        "src/${version}/${filename}" \
+        -background black \
+        -extent 1900x100 \
+        "resized/${version}/${filename/.png/_resize.png}"
+    done
+  done
+}
+
+take_compression_term()
+{
+  local window_idx
+  local version
+  local filename
+  for ((i=0;i<10;i++))
+  do
+    sleep 2
+    for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+    do
+      window_idx=${WINDOWS_ID[idx]}
+      idx=$(( idx + 1 ))
+      version=${WINDOWS_ID[idx]}
+      filename=${version}_0$i.png
+      if ! [[ -d "src/${version}" ]]
+      then
+        mkdir -p "src/${version}/"
+      fi
+      echo "${filename}"
+      import \
+        -window  "${window_idx}" \
+        -crop 2560x100+0+0 \
+        +repage \
+        "src/${version}/${filename}"
+    done
+    awesome-client 'awful = require("awful");awful.tag.incmwfact(0.10)'
+  done
+
+  for ((i=10;i<20;i++))
+  do
+    sleep 2
+    for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+    do
+      window_idx=${WINDOWS_ID[idx]}
+      idx=$(( idx + 1 ))
+      version=${WINDOWS_ID[idx]}
+      filename=${version}_$i.png
+      if ! [[ -d "src/${version}" ]]
+      then
+        mkdir -p "src/${version}/"
+      fi
+      echo "${filename}"
+      import \
+        -window  "${window_idx}" \
+        -crop 2560x100+0+0 \
+        +repage \
+        "src/${version}/${filename}"
+    done
+    awesome-client 'awful = require("awful");awful.tag.incmwfact(-0.10)'
+  done
+}
+
+take_full_window()
+{
+  local window_idx
+  local version
+  local prefix=${1:-""}
+  local filename
+  for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+  do
+    window_idx=${WINDOWS_ID[idx]}
+    idx=$(( idx + 1 ))
+    filename=${prefix}
+    echo "${filename}.png"
+    import \
+      -window  "${window_idx}" \
+      +repage \
+      "${filename}.png"
+  done
+}
+
+
+take_all_term()
+{
+  local window_idx
+  local version
+  local prefix=${1:-""}
+  local filename
+  for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+  do
+    window_idx=${WINDOWS_ID[idx]}
+    idx=$(( idx + 1 ))
+    version=${WINDOWS_ID[idx]}
+    filename=${prefix}_${version}
+    echo "${filename}.png"
+    import \
+      -window  "${window_idx}" \
+      -crop 2560x100+0+0 \
+      +repage \
+      "${filename}.png"
+  done
+}
+
+create_gif()
+{
+  local version_idx
+  local version
+  for ((idx=0;idx<${#WINDOWS_ID[@]};idx++))
+  do
+    version_idx=$(( idx + 1 ))
+    version=${WINDOWS_ID[version_idx]}
+    idx=$(( idx + 1 ))
+    dir=""
+    if [[ -d "text" ]]
+    then
+      dir="text"
+    elif [[ -d "resized" ]]
+    then
+      dir="resized"
+    fi
+    if [[ -e "${dir}/${version}" ]]
+    then
+      echo "${dir}/${version}/shrink_${version}.gif"
+      convert \
+        -delay 250 \
+        -loop 0 \
+        ${dir}/${version}/*.png \
+        ${dir}/${version}/shrink_${version}.gif
+    fi
+  done
+}
+
+main()
+{
+  case $1 in
+    0)
+      take_all_term $2
+      ;;
+    1)
+      take_compression_term
+      resize_screenshot
+      create_gif
+      ;;
+    2)
+      resize_screenshot
+      create_gif
+      ;;
+    3)
+      create_gif
+      ;;
+    *)
+      take_full_window $2
+      ;;
+
+  esac
+}
+
+main $@
+
+
+# *****************************************************************************
+# EDITOR CONFIG
+# vim: ft=sh: ts=2: sw=2: sts=2
+# *****************************************************************************

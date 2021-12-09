@@ -1,0 +1,81 @@
+#!/bin/bash
+
+load_keepass_info()
+{
+  # From KEEPASS environment variable, allow to simplify the use of
+  # keepassxc-cli, like list entry, get password, username, etc.
+  # PARAM (* means required)
+  # *$1 : String, One of available keepassxc-cli option, see `keepassxc-cli -h`
+  #  $2 : String, Value of the key within the keypass database for which you
+  #     want to get information. Required depending on $1.
+  #  $3 : String, Value from the key within the dataset you want to echo, for
+  #       instance: Password, Username, Notes, etc. see keepassxc-cli. Required
+  #       only if $1 is "show"1. See `keepassxc-cli show -h`. Default is Password.
+
+  # REMARK: To use this script, keepass database must be unlocked by files and
+  # not with password, otherwise, this script will not work. Thus, I strongly
+  # recommend storing your `KEEPASS_KEYFILE` to a removable media.
+  local action=$1
+  local inbase_key=$2
+  local info=$3
+  local cmd=""
+
+  if [[ -z ${KEEPASS_KEYFILE} ]]
+  then
+    # Ensure environment variable is set.
+    echo "ERROR - Variable KEEPASS_KEYFILE must be set to continue !"
+    return 1
+  elif [[ -z ${KEEPASS_DB} ]]
+  then
+    # Ensure environment variable is set.
+    echo "ERROR - Variable KEEPASS_DB must be set to continue !"
+    return 1
+  elif ! [[ -f "${KEEPASS_KEYFILE}" ]]
+  then
+    # Ensure file unlocking the database exists.
+    echo "ERROR - Files ${KEEPASS_KEYFILE}  must exists to continue !"
+    return 2
+  elif ! [[ -f "${KEEPASS_DB}" ]]
+  then
+    # Ensure database file exists.
+    echo "ERROR - Files ${KEEPASS_DB}  must exists to continue !"
+    return 3
+  elif ! keepassxc-cli ls --no-password -k "${KEEPASS_KEYFILE}" "${KEEPASS_DB}" &> /dev/null
+  then
+    # Ensure database can be unlocked using provided environment variable and
+    # files.
+    echo "ERROR - Unable to unlocked Keepass DB with provided variable."
+    echo "ERROR - Please ensure that your Keepass DB define by variable KEEPASS_DB"
+    echo "ERROR - Can be unlocked with file provided by variable KEEPASS_KEYFILE"
+  else
+    # Finally, allowed to unlock and read keepass db.
+    # Construct wrapper command.
+    cmd="keepassxc-cli ${action} --no-password -k \"${KEEPASS_KEYFILE}\" "
+    if [[ ${action} == show ]]
+    then
+        if [[ -n "${info}" ]]
+        then
+            cmd+="-a \"${info}\" "
+        else
+            cmd+="-a Password "
+        fi
+    fi
+    cmd+="\"${KEEPASS_DB}\" \"${inbase_key}\""
+    # Eval built command
+    val=$(eval "${cmd}")
+    ret=$?
+    # If command does not return any value, do not print anything and exit with
+    # keepassxc-cli return code.
+    if [[ -z "${val}" ]]
+    then
+      return ${ret}
+    fi
+  fi
+  # Finally, echo the valu of the request on the terminal or to be catched by
+  # another script using this script.
+  echo "${val}"
+  return 0
+}
+
+load_keepass_info "$@"
+exit $?
