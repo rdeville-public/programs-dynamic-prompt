@@ -297,28 +297,13 @@ build_html:
   <<: *stage_build
   before_script:
     - *before_script_python_dependencies
+    - *before_script_export_variable
+    - *before_script_prepare_deployment
   script:
     # Install python documentations requirements
     - pip3 install -r requirements.docs.txt
     # Build the documentation
     - mkdocs build
-  artifacts:
-    paths:
-      - site/
-
-# Jobs in deploy stage
-# -----------------------------------------------------------------------------
-# Template jobs script deploy previously built html documentation.
-script_deploy_html: &script_deploy_html
-  <<: *tag_docker
-  <<: *image_docker
-  <<: *stage_deploy
-  needs:
-    - build_html
-  before_script:
-    - *before_script_export_variable
-    - *before_script_prepare_deployment
-  script:
     - git fetch --all
     - export LAST_TAG="$(git describe --tags `git rev-list --tags --max-count=1`)"
     - export LAST_TAG="${LAST_TAG/v/}"
