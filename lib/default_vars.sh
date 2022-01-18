@@ -34,12 +34,12 @@ local TRUE_COLOR_TERM=(
 
 # Set default SEGMENT array
 local SEGMENT=(
-  "return_code, tmux, pwd, hfill, keepass, username, hostname"
+  "return_code, docker, tmux, pwd, hfill, keepass, username, hostname"
   "vcsh, virtualenv, vcs, hfill, kube, openstack"
 )
 # Set default SEGMENT_PRIORITY array
 local SEGMENT_PRIORITY=(
-  "tmux, username, hostname, keepass, pwd, return_code"
+  "tmux, docker, username, hostname, keepass, pwd, return_code"
   "vcsh, virtualenv, kube, openstack, vcs"
 )
 

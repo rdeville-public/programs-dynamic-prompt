@@ -51,6 +51,7 @@ respective documentation.
 | [vcsh](segments/vcsh.md)             | Name of the vcsh repo                   |
 | [vcs](segments/vcs.md)               | Version control informations            |
 | [virtualenv](segments/virtualenv.md) | Virtual environment informations        |
+| [docker](segments/docker.md) | Show an indicator if within a docker container |
 
 <!-- TPL_NEW_SEGMENT (Comment for the script `new_segment.sh` DO NOT DELETE !!!-->
 </center>

@@ -343,6 +343,7 @@ nav:
       - vcsh segment: configuration/segments/vcsh.md
       - vcs segment: configuration/segments/vcs.md
       - virtualenv segment: configuration/segments/virtualenv.md
+      - docker segment: configuration/segments/docker.md
 
 # TPL_NEW_SEGMENT (Comment for the script `new_segment.sh` DO NOT DELETE !!!
     - Prompt examples: configuration/prompt_examples.md

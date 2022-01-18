@@ -872,6 +872,8 @@ zsdoc/data
 
 ### END MKDOCS TEMPLATE ###
 
+!lib
+
 # ******************************************************************************
 # VIM MODELINE
 # vim: ft=gitignore
