@@ -5,6 +5,7 @@
 .old/
 .tmp/
 .undodir
+.upgraded
 
 ### BEGIN MKDOCS TEMPLATE ###
 ### WARNING, DO NOT UPDATE CONTENT BETWEEN MKDOCS TEMPLATE TAG ! ###
