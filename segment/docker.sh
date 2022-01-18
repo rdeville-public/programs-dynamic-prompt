@@ -36,7 +36,7 @@ _compute_docker_info()
 
   local info
   local cmd_output="$(grep ':/docker/' /proc/self/cgroup  | cut -d "/" -f 3 | sort | uniq )"
-  if [[ -n "${cmd_output}" ]] && [[ -e "/.dockerenv" ]]
+  if [[ -n "${cmd_output}" || -e "/.dockerenv" ]]
   then
     info="${DOCKER_CHAR}${cmd_output:0:12}"
   elif [[ -n "${DEBUG_MODE}" ]]
