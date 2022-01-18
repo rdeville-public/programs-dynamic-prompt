@@ -115,6 +115,10 @@ _source_variables()
   local cfg_filename="config.sh"
 
   cat "${PROMPT_DIR}/lib/default_vars.sh"
+  if [[ -f "${cfg_dir}/${cfg_filename}" ]]
+  then
+    cat "${cfg_dir}/${cfg_filename}"
+  fi
   if [[ -e "/.dockerenv" && -f "${cfg_dir}/docker/${cfg_filename}" ]]
   then
     cat "${cfg_dir}/docker/${cfg_filename}"
