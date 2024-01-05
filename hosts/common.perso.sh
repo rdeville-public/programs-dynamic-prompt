@@ -64,6 +64,7 @@ then # Prompt does not support glyphs or unicode char
   local TMUX_CHAR="T|"            # Default " "
   local VCSH_CHAR="V|"            # Default " "
   local KUBE_CHAR="K|"            # Default "⎈ "
+  local TERRAFORM_CHAR="T|"            # Default "⎈ "
   local OPENSTACK_CHAR="O|"       # Default " "
   local VIRTUALENV_CHAR="P|"      # Default " "
   local USERNAME_CHAR="_"         # Default " "
@@ -103,7 +104,7 @@ else # terminal emulator support unicode and glyphs char
     local PROMPT_ENV_LEFT=" "    # v2 Default ""
     local PROMPT_ENV_RIGHT=" "   # v2 Default ""
     local S_LINE_PROMPT_END=""   # Default ""
-    local M_LINE_PROMPT_END=" ﬌ "   # Default " ﬌ "
+    local M_LINE_PROMPT_END="󱞩 "   # Default " ﬌ "
   fi
   # ---------------------------------------------------------------------------
   # SEGMENT CHARACTERS
@@ -114,6 +115,7 @@ else # terminal emulator support unicode and glyphs char
   local TMUX_CHAR=" "            # Default " "
   local VCSH_CHAR=" "            # Default " "
   local KUBE_CHAR="☸ "            # Default "☸ "
+  local TERRAFORM_CHAR=" "
   local OPENSTACK_CHAR=" "       # Default " "
   local VIRTUALENV_CHAR=" "      # Default " "
   local USERNAME_CHAR=" "        # Default " "
@@ -187,6 +189,8 @@ then # Terminal support true colors
   local VCSH_BG="0;95;95"              # rgb(000,095,095) #005F5F
   local KUBE_FG="255;255;255"          # rgb(255,255,255) #FFFFFF
   local KUBE_BG="0;135;255"            # rgb(000,135,255) #0087FF
+  local TERRAFORM_FG="255;255;255"          # rgb(255,255,255) #FFFFFF
+  local TERRAFORM_BG="132;79;186"
   local OPENSTACK_FG="255;255;255"     # rgb(255,255,255) #FFFFFF
   local OPENSTACK_BG="135;0;0"         # rgb(135,000,000) #870000
   local VIRTUALENV_FG="0;0;0"          # rgb(000,000,000) #000000
@@ -239,6 +243,8 @@ then # If terminal support 256 colors and is not unkown neither tty
   local VCSH_BG="23"             # rgb(000,095,095) #005F5F
   local KUBE_FG="234"            # rgb(255,255,255) #FFFFFF
   local KUBE_BG="33"             # rgb(000,135,255) #0087FF
+  local TERRAFORM_FG="234"       # rgb(255,255,255) #FFFFFF
+  local TERRAFORM_BG="128"
   local OPENSTACK_FG="234"       # rgb(255,255,255) #FFFFFF
   local OPENSTACK_BG="88"        # rgb(135,000,000) #870000
   local VIRTUALENV_FG="16"       # rgb(000,000,000) #000000
@@ -292,6 +298,8 @@ else
   local VCSH_BG="6"              # Usually cyan
   local KUBE_FG="0"              # Usually black
   local KUBE_BG="4"              # Usually blue
+  local TERRAFORM_FG="9"         # Usually white
+  local TERRAFORM_BG="5"         # Usually magenta
   local OPENSTACK_FG="9"         # Usually white
   local OPENSTACK_BG="1"         # Usually red
   local VIRTUALENV_FG="0"        # Usually black
@@ -337,6 +345,7 @@ then
   local TMUX_FG="${TMUX_BG}"
   local VCSH_FG="${VCSH_BG}"
   local KUBE_FG="${KUBE_BG}"
+  local TERRAFORM_FG="${TERRAFORM_BG}"
   local OPENSTACK_FG="${OPENSTACK_BG}"
   local VIRTUALENV_FG="${VIRTUALENV_BG}"
   local USERNAME_FG="${USERNAME_BG}"
