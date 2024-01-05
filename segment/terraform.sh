@@ -19,92 +19,87 @@
 
 # DESCRIPTION
 # =============================================================================
-# Set the variables and methods to compute the content of segment kube
+# Set the variables and methods to compute the content of segment terraform
 
 # VARIABLES
 # =============================================================================
-# Set variables for kube segment
-local KUBE_CHAR="${KUBE_CHAR:-"☸ "}"
-local KUBE_FG="${KUBE_FG:-${DEFAULT_FG}}"
-local KUBE_BG="${KUBE_BG:-${DEFAULT_BG}}"
+# Set variables for terraform segment
+local TERRAFORM_CHAR="${TERRAFORM_CHAR:-" "}"
+local TERRAFORM_FG="${TERRAFORM_FG:-${DEFAULT_FG}}"
+local TERRAFORM_BG="${TERRAFORM_BG:-${DEFAULT_BG}}"
 
 # METHODS
 # =============================================================================
-_compute_kube_content()
+_compute_terraform_content()
 {
   # """TODO"""
-  # Compute the content of the kube segment of the form
-  # kube_context:kube_namespace
+  # Compute the content of the terraform segment of the form
+  # terraform_workspace
   # NO PARAM
 
-  local kube_info
-  local kube_namespace
-  local kube_context="$(kubectl config current-context 2>/dev/null)"
-  if [[ -n "${kube_context}" ]]
+  local terraform_info
+  local terraform_workspace="$(terraform workspace show 2>/dev/null)"
+  if [[ -n "${terraform_workspace}" ]]
   then
-    local kube_namespace="$(kubectl config view --minify \
-      --output 'jsonpath={..namespace}' 2>/dev/null)"
-    # Set namespace to 'default' if it is not defined
-    kube_namespace="${kube_namespace:-default}"
-    kube_info="${kube_context}:${kube_namespace}"
+    terraform_info="${terraform_workspace}"
   else
-    kube_info=""
+    terraform_info=""
   fi
-  echo -e "${kube_info}"
+  echo -e "${terraform_info}"
 }
 
-_compute_kube_info()
+_compute_terraform_info()
 {
   # """TODO"""
-  # If environment variable KUBECONFIG existss and is not equal to 0, get the
-  # kubernetes current context and namespace and print them with the kube char.
+  # If environment variable TERRAFORM_ENV existss and is not equal to 0, get the
+  # terraform current workspace and print it with the terraform char.
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
 
   local info
   local cmd_output
-  if [[ -n "${KUBECONFIG}" ]] && [[ ${KUBECONFIG} -ne 0 ]]
+  if [[ -n "${TERRAFORM_ENV}" ]]
   then
-    cmd_output=$(_compute_kube_content)
+    cmd_output=$(_compute_terraform_content)
     if [[ -n "${cmd_output}" ]]
     then
-      info="${KUBE_CHAR}${cmd_output}"
+      info="${TERRAFORM_CHAR}${cmd_output}"
     fi
   elif [[ -n "${DEBUG_MODE}" ]]
   then
     # Force output when debug mode is activated
-    info="${KUBE_CHAR}context:namespace"
+    info="${TERRAFORM_CHAR}context:namespace"
   fi
   echo -e "${info}"
 }
 
-_compute_kube_info_short()
+_compute_terraform_info_short()
 {
   # """TODO"""
-  # If environment variable KUBECONFIG print the keepass char
+  # If environment variable TERRAFORM_ENV print the keepass char
   # If DEBUG_MODE exists, force the output of the segment
   # NO PARAM
 
   local info
   local cmd_output
-  if [[ -n "${KUBECONFIG}" ]] && [[ ${KUBECONFIG} -ne 0 ]]
+  if [[ -z "${TERRAFORM_ENV}" ]]
   then
-    cmd_output=$(_compute_kube_content)
+    cmd_output=$(_compute_terraform_content)
     if [[ -n "${cmd_output}" ]]
     then
-      info="${KUBE_CHAR}"
+      info="${TERRAFORM_CHAR}"
     fi
   elif [[ -n "${DEBUG_MODE}" ]]
   then
     # Force output when debug mode is activated
-    info="${KUBE_CHAR}"
+    info="${TERRAFORM_CHAR}"
   fi
   echo -e "${info}"
 }
 
 # REQUIRED METHODS
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-_kube_info()
+_terraform_info()
 {
   # """TODO"""
   # Required method to get segment in long format. If segment content is
@@ -119,21 +114,21 @@ _kube_info()
   #     store bacgkround segment color
   # NO PARAM
 
-  local info=$(_compute_kube_info)
+  local info=$(_compute_terraform_info)
   if [[ -n "${info}" ]]
   then
     # shellcheck disable=SC2154
-    # SC2154: kube is referenced but not assigned.
+    # SC2154: terraform is referenced but not assigned.
     # -----> Don't know why shellcheck show this warning ??
     # see: https://github.com/koalaman/shellcheck/wiki/SC2154
-    segment_content[kube]="${info}"
-    segment_content_clr[kube]="${info}"
-    segment_fg[kube]="${KUBE_FG}"
-    segment_bg[kube]="${KUBE_BG}"
+    segment_content[terraform]="${info}"
+    segment_content_clr[terraform]="${info}"
+    segment_fg[terraform]="${TERRAFORM_FG}"
+    segment_bg[terraform]="${TERRAFORM_BG}"
   fi
 }
 
-_kube_info_short()
+_terraform_info_short()
 {
   # """TODO"""
   # Required method to get segment in short format. If segment content is
@@ -145,11 +140,11 @@ _kube_info_short()
   #     inner colors
   # NO PARAM
 
-  local info=$(_compute_kube_info_short)
+  local info=$(_compute_terraform_info_short)
   if [[ -n "${info}" ]]
   then
-    segment_content_short[kube]="${info}"
-    segment_content_short_clr[kube]="${info}"
+    segment_content_short[terraform]="${info}"
+    segment_content_short_clr[terraform]="${info}"
   fi
 }
 

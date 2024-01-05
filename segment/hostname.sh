@@ -38,7 +38,13 @@ _compute_hostname_info()
   # NO PARAM
 
   local info
-  local cmd_output="$(hostname)"
+  local cmd_output
+  # if command hostname
+  # then
+  #   cmd_output="$(hostname)"
+  # else
+    cmd_output="$(cat /etc/hostname)"
+  # fi
   if [[ -n "${cmd_output}" ]]
   then
     info="${HOSTNAME_CHAR}${cmd_output}"
@@ -58,7 +64,13 @@ _compute_hostname_info_short()
   # NO PARAM
 
   local info
-  local cmd_output="$(hostname)"
+  local cmd_output
+  # if command hostname
+  # then
+  #   cmd_output="$(hostname)"
+  # else
+    cmd_output="$(cat /etc/hostname)"
+  # fi
   if [[ -n "${cmd_output}" ]]
   then
     info="${HOSTNAME_CHAR}"

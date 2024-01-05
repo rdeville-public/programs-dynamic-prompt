@@ -26,21 +26,21 @@
 # =============================================================================
 # Setup array to store supported terminal
 local UNICODE_SUPPORTED_TERM=(
-  "st" "terminator" "xterm" "iTerm.app"
+  "st" "terminator" "xterm" "iTerm.app" "alacritty"
 )
 local TRUE_COLOR_TERM=(
-  "st" "terminator" "iTerm.app"
+  "st" "terminator" "iTerm.app" "alacritty"
 )
 
 # Set default SEGMENT array
 local SEGMENT=(
-  "return_code, docker, tmux, pwd, hfill, keepass, username, hostname"
-  "vcsh, virtualenv, vcs, hfill, kube, openstack"
+  "return_code, tmux, pwd, hfill, keepass, username, hostname"
+  "vcsh, virtualenv, vcs, hfill, kube, terraform, openstack"
 )
 # Set default SEGMENT_PRIORITY array
 local SEGMENT_PRIORITY=(
-  "tmux, docker, username, hostname, keepass, pwd, return_code"
-  "vcsh, virtualenv, kube, openstack, vcs"
+  "tmux, username, hostname, keepass, pwd, return_code"
+  "vcsh, virtualenv, kube, terraform, openstack, vcs"
 )
 
 # Set surrounding color code to be able to print color in the prompt depending
