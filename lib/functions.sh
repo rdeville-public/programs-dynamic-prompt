@@ -108,35 +108,28 @@ _source_variables()
   # hosts/common.sh and in hosts/$(hostname).sh if these files exists.
   # This method should be used with source, like `source <(_source_variables)
   # NO PARAM
+  local host="$(hostname)"
   local default_cfg_dir="${XDG_DATA_DIR:-"${HOME}/.local/share"}/prompt"
   local cfg_dir="${PROMPT_DATA_DIR:-"${default_cfg_dir}"}"
-  local host_cfg_dir="${cfg_dir}/$(hostname)"
-  local user_cfg_dir="${cfg_dir}/$(whoami)"
-  local cfg_filename="config.sh"
+  local cfg_files=(
+    "${cfg_dir}/config.sh"
+    "${cfg_dir}/hosts/${host}.sh"
+    "${cfg_dir}/hosts/${host}/config.sh"
+    "${cfg_dir}/hosts/${host}/${USER}.sh"
+    "${cfg_dir}/hosts/${host}/${USER}/config.sh"
+    "${cfg_dir}/users/${USER}.sh"
+    "${cfg_dir}/users/${USER}/config.sh"
+  )
 
   cat "${PROMPT_DIR}/lib/default_vars.sh"
-  if [[ -f "${cfg_dir}/${cfg_filename}" ]]
-  then
-    cat "${cfg_dir}/${cfg_filename}"
-  fi
-  if [[ -e "/.dockerenv" && -f "${cfg_dir}/docker/${cfg_filename}" ]]
-  then
-    cat "${cfg_dir}/docker/${cfg_filename}"
-  fi
 
-  if [[ -d "${host_cfg_dir}" ]]
-  then
-    user_cfg_dir="${host_cfg_dir}/$(whoami)"
-    if [[ -e "${host_cfg_dir}/${cfg_filename}" ]]
+  for iFile in "${cfg_files[@]}"
+  do
+    if [[ -f "${iFile}" ]]
     then
-      cat "${host_cfg_dir}/${cfg_filename}"
+      cat "${iFile}"
     fi
-  fi
-
-  if [[ -d "${user_cfg_dir}" && -f "${user_cfg_dir}/${cfg_filename}" ]]
-  then
-    cat "${user_cfg_dir}/${cfg_filename}"
-  fi
+  done
 }
 
 _compute_segment_content_v1()
