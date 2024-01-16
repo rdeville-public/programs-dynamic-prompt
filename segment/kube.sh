@@ -63,7 +63,7 @@ _compute_kube_info()
 
   local info
   local cmd_output
-  if [[ -n "${KUBECONFIG}" ]] && [[ ${KUBECONFIG} -ne 0 ]]
+  if [[ -n "${KUBECONFIG}" ]]
   then
     cmd_output=$(_compute_kube_content)
     if [[ -n "${cmd_output}" ]]
@@ -87,7 +87,7 @@ _compute_kube_info_short()
 
   local info
   local cmd_output
-  if [[ -n "${KUBECONFIG}" ]] && [[ ${KUBECONFIG} -ne 0 ]]
+  if [[ -n "${KUBECONFIG}" ]]
   then
     cmd_output=$(_compute_kube_content)
     if [[ -n "${cmd_output}" ]]
